@@ -1,0 +1,53 @@
+# ------------------ INTERFAZ GRÁFICA ------------------
+ventana = tk.Tk()
+ventana.title("Sistema de Predicción de Aprobación de Préstamos")
+ventana.geometry("520x550")
+ventana.resizable(False, False)
+ 
+# Título
+tk.Label(ventana, text="SISTEMA DE PREDICCIÓN DE APROBACIÓN DE PRÉSTAMOS",
+         font=("Arial", 11, "bold"), fg="#004d80").pack(pady=10)
+ 
+# Contenedor principal
+frame = tk.Frame(ventana)
+frame.pack(pady=5)
+ 
+# Campos
+tk.Label(frame, text="Nombre:").grid(row=0, column=0, sticky="e", padx=5, pady=5)
+entry_nombre = tk.Entry(frame, width=30)
+entry_nombre.grid(row=0, column=1)
+ 
+tk.Label(frame, text="Edad:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
+entry_edad = tk.Entry(frame, width=30)
+entry_edad.grid(row=1, column=1)
+ 
+tk.Label(frame, text="Ingreso mensual ($):").grid(row=2, column=0, sticky="e", padx=5, pady=5)
+entry_ingreso = tk.Entry(frame, width=30)
+entry_ingreso.grid(row=2, column=1)
+ 
+tk.Label(frame, text="Monto solicitado ($):").grid(row=3, column=0, sticky="e", padx=5, pady=5)
+entry_monto = tk.Entry(frame, width=30)
+entry_monto.grid(row=3, column=1)
+ 
+tk.Label(frame, text="Tipo de préstamo:").grid(row=4, column=0, sticky="e", padx=5, pady=5)
+combo_tipo = ttk.Combobox(frame, values=["Vivienda", "Vehículo", "Negocio", "Estudio", "Libre inversión"], state="readonly", width=27)
+combo_tipo.grid(row=4, column=1)
+ 
+tk.Label(frame, text="Historial crediticio:").grid(row=5, column=0, sticky="e", padx=5, pady=5)
+combo_historial = ttk.Combobox(frame, values=["Excelente", "Bueno", "Regular", "Malo"], state="readonly", width=27)
+combo_historial.grid(row=5, column=1)
+ 
+tk.Label(frame, text="Tipo de contrato:").grid(row=6, column=0, sticky="e", padx=5, pady=5)
+combo_contrato = ttk.Combobox(frame, values=["Fijo", "Independiente", "Temporal"], state="readonly", width=27)
+combo_contrato.grid(row=6, column=1)
+ 
+tk.Label(frame, text="Años de trabajo:").grid(row=7, column=0, sticky="e", padx=5, pady=5)
+entry_anios = tk.Entry(frame, width=30)
+entry_anios.grid(row=7, column=1)
+ 
+# Botón evaluar
+btn_evaluar = tk.Button(ventana, text="Evaluar solicitud", bg="#007acc", fg="white",
+                        font=("Arial", 11, "bold"), command=evaluar_prestamo)
+btn_evaluar.pack(pady=15, ipadx=10, ipady=3)
+ 
+ventana.mainloop()
